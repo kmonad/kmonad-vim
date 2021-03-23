@@ -507,6 +507,6 @@ syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='#\
 
 " deflayer {{{1
 
-syn region kmonaddeflayer end=')' matchgroup=kmonadkeyword start='(\zsdeflayer' contains=@kmonadKeyVals
+syn region kmonaddeflayer end=')' matchgroup=kmonadkeyword start='(\zsdeflayer' skip='\\)' contains=@kmonadKeyVals
 
 " }}}1
