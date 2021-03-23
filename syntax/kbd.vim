@@ -491,13 +491,11 @@ syn region kmonaddefsrc end=')' matchgroup=kmonadkeyword start='(\zsdefsrc' cont
 
 syn region kmonaddefalias end=')' matchgroup=kmonadkeyword start='(\zsdefalias' contains=kmonaddefaliasName,kmonaddefaliasBrackVal
 
-syn match kmonaddefaliasName '\(defalias\s\+\|^\)\zs\s*[^ 	#(]\S*' nextgroup=kmonaddefaliasBrackVal
+syn match kmonaddefaliasName '\(defalias\s\+\|^\)\zs\s*[^ 	#(]\S\+\ze\s\+\S' nextgroup=kmonaddefaliasBrackVal contained
 hi def link kmonaddefaliasName Identifier 
 
 hi def link kmonaddefaliasMod Keyword
 
-" TODO so far I've treated these the same. They're different. Some are recursive, some not, etc...
-" TODO does tap-hold have other things like numbers? Do THEY need highlighting?
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zsaround\(-next\(-single\)\?\)\?' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zscmd-button' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zsmulti-tap' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
