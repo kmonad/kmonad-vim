@@ -1,19 +1,10 @@
-" MAKE THIS RIGHT!!
-" TODO:
-" - add leading brackets and corresponding hl offsets to all the `def-` keywords.
-
 " Vim syntax file
-" Language:	C
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last Change:	2001 Jun 18
-" Remark:	Included by the C++ syntax.
-
-"
-" Language:   kbd
-" Maintainer: Hugo Heagren
-" URL:        https://git.hugoheagren.com/Hugo-Heagren/KMonad.vim
+" Language:     kbd
+" Maintainer:   Hugo Heagren
+" Last Change:	2021 Mar 23
+" URL:          https://git.hugoheagren.com/Hugo-Heagren/KMonad.vim
+" Version:      0.0.1
 " Copyright 2021 Hugo Heagren
-" Version: 0.0.1
 
 " This file is free software; you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -27,6 +18,9 @@
 
 " You should have received a copy of the GNU General Public License
 " along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+" TODO:
+" - add leading brackets and corresponding hl offsets to all the `def-` keywords.
 
 if version < 600
   syntax clear
@@ -84,8 +78,12 @@ hi def link kmonadAliascode Structure
 
 " }}}2
 
+" Numbers {{{2
+
 syn match kmonadNumber '\d\+' contained
 hi def link kmonadNumber Number
+
+" }}}2
 
 syn cluster kmonadKeyVals contains=kmonadKeycode,kmonadAliascode
 
@@ -498,28 +496,9 @@ syn region kmonaddefsrc end=')' matchgroup=kmonadkeyword start='defsrc' containe
 
 syn region kmonaddefalias end=')' matchgroup=kmonadkeyword start='defalias' contained contains=kmonaddefaliasName,kmonaddefaliasBrackVal
 
-
 syn match kmonaddefaliasName '\(defalias\s\+\|^\)\zs\s*[^ 	#(]\S*' nextgroup=kmonaddefaliasBrackVal
 hi def link kmonaddefaliasName Identifier 
 
-" syn cluster kmonaddefaliasStatement contains=kmonaddefaliasBrackStatement,kmonaddefaliasStringStatement
-
-" " Alias definitions which include brackets
-" syn region kmonaddefaliasBrackStatement end=')'  matchgroup=kmonaddefaliasName start='\S\+\s\+' contained contains=@kmomnaddefaliasVal keepend
-" " TODO Why doesn't this work? (adding keepend above MAKES it work, MOST of the time...)
-" hi def link kmonaddefaliasName Identifier 
-
-" " Alias definitions with mods in bracket e.g. `nF (around-next @fun)` {{{2
-
-" " TODO This doesn't take account of S-<keycode> etc.
-
-" syn cluster kmonaddefaliasBrackMod contains=kmonaddefaliasMod,kmonaddefaliasBrackVal
-
-" syn keyword kmonaddefaliasMod around around-next around-next-single contained
-" syn keyword kmonaddefaliasMod cmd-button contained
-" syn keyword kmonaddefaliasMod layer-add layer-delay layer-next layer-rem layer-switch layer-toggle contained
-" syn keyword kmonaddefaliasMod multi-tap contained
-" syn keyword kmonaddefaliasMod tap-hold tap-hold-next tap-hold-next-release tap-macro tap-next tap-next-release contained
 hi def link kmonaddefaliasMod Keyword
 
 " TODO so far I've treated these the same. They're different. Some are recursive, some not, etc...
@@ -530,25 +509,6 @@ syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zslayer-\(add\|delay\|next\|rem\|switch\|toggle\)' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zstap-hold\(-next\(-release\)\?\)\?\|(\zstap-\(macro\|next\(-release\)\?\)' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='#\ze(' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal keepend
-
-" }}}2
-
-" " Alias definitions with #( ... ) syntax {{{2
-
-" syn cluster kmonaddefaliasBrackHash contains=kmonaddefaliasBrackHashVal,kmonaddefaliasHash
-
-" syn keyword kmonaddefaliasHash # contained
-" syn region kmonaddefaliasBrackHashVal end=')' matchgroup=kmonaddefaliasHash start='#(' contained contains=@kmonadKeyVals
-" hi def link kmonaddefaliasHash Keyword
-
-" " }}}2
-
-" " TODO highlighting for this one?
-" " XXX this means it is impossible to define an alias beginning with a bracket. Is that ok?
-" " XXX There is no highlighting for correct/incorrect keyco
-" " This won't work...
-" " syn region kmonaddefaliasStringStatement end='$'  matchgroup=kmonaddefaliasName start='^\s*\S\+\ze\s\+[^ 	#(]\S*' contained keepend contains=kmonadKeyVals
-" syn match kmonaddefaliasStringVal '[^ 	#(]\S*' contained
 		
 " }}}1
 
