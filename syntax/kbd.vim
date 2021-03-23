@@ -77,7 +77,7 @@ hi def link kmonadAliascode Structure
 
 " Numbers {{{2
 
-syn match kmonadNumber '\d\+' contained
+syn match kmonadNumber '\<\d\+\>' contained
 hi def link kmonadNumber Number
 
 " }}}2
@@ -463,7 +463,8 @@ syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zscmd-button' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zsmulti-tap' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zslayer-\(add\|delay\|next\|rem\|switch\|toggle\)' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
-syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zstap-hold\(-next\(-release\)\?\)\?\|(\zstap-\(macro\|next\(-release\)\?\)' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
+syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='tap\(-macro\)\?-next\(-release\)\?' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
+syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zstap-hold\(-next\(-release\)\?\)\?' nextgroup=kmonadNumber contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal,kmonadNumber
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='#\ze(' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal keepend
 
 " }}}1
