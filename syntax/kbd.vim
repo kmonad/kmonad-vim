@@ -41,7 +41,7 @@ set commentstring=;;%s
 " TODO is there a better place to put this?
 " TODO can't add '"'
 " TODO can't add [,],@,^
-setlocal iskeyword+=-,;,,,.,/,=,',{,},[,],`,:,<,>,*,\|,?,$,&,+,(,),~,!,#,%,\
+setlocal iskeyword+=-,;,,,.,/,=,',{,},[,],`,:,<,>,*,\|,?,$,&,(,),~,!,#,%,\
 
 hi def link kmonadKeyword Keyword
 
@@ -471,6 +471,8 @@ syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='#\
 
 " deflayer {{{1
 
-syn region kmonaddeflayer end=')' matchgroup=kmonadkeyword start='(\zsdeflayer' skip='\\)' contains=@kmonadKeyVals
+syn region kmonaddeflayer end=')' matchgroup=kmonadkeyword start='(\zsdeflayer' skip='\\)' contains=kmonadPlus,@kmonadKeyVals
+
+syn region kmonadPlus end='\s' matchgroup=kmonadKeycode start='\s\zs+' contains=kmonadKeycode
 
 " }}}1
