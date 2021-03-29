@@ -408,14 +408,13 @@ syn region kmonaddefcfg end=')' matchgroup=kmonadkeyword start='(\zsdefcfg' cont
 
 " defcfg options {{{2
 
-syn cluster kmonaddefcfgOpts contains=@kmonaddefcfgIOOpts,@kmonaddefcfgBoolOpts,kmonaddefcfgOptCmpSeq
+syn cluster kmonaddefcfgOpts contains=kmonaddefcfgIOOpts,kmonaddefcfgBoolOpts,kmonaddefcfgOptCmpSeq
 
 " Input/Output Options (`input`, `output`, `init`) {{{3
 
-syn cluster kmonaddefcfgIOOpts contains=kmonaddefcfgOptInput,kmonaddefcfgOptOutput,kmonaddefcfgOptInit  
-syn region kmonaddefcfgOptInput  end='$' matchgroup=kmonaddefcfgOptName start='input'  contained
-syn region kmonaddefcfgOptOutput end='$' matchgroup=kmonaddefcfgOptName start='output' contained
-syn region kmonaddefcfgOptInit   end='$' matchgroup=kmonaddefcfgOptName start='init'   contained
+syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='input'  contained
+syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='output' contained
+syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='init'   contained
 
 " }}}3
 
@@ -423,9 +422,8 @@ syn region kmonaddefcfgOptCmpSeq end='$' matchgroup=kmonaddefcfgOptName start='c
 
 " Boolean Options (`fallthrough`, `allow-cmd`) {{{3
 
-syn cluster kmonaddefcfgBoolOpts contains=kmonaddefcfgOptAllowCmd,kmonaddefcfgOptFallthrough
-syn region kmonaddefcfgOptAllowCmd    end='$' matchgroup=kmonaddefcfgOptName start='allow-cmd'   contains=kmonadBool contained
-syn region kmonaddefcfgOptFallthrough end='$' matchgroup=kmonaddefcfgOptName start='fallthrough' contains=kmonadBool contained
+syn region kmonaddefcfgBoolOpts    end='$' matchgroup=kmonaddefcfgOptName start='allow-cmd'   contains=kmonadBool contained
+syn region kmonaddefcfgBoolOpts end='$' matchgroup=kmonaddefcfgOptName start='fallthrough' contains=kmonadBool contained
 
 " }}}3
 
@@ -433,10 +431,10 @@ hi def link kmonaddefcfgOptName Constant
 
 " Option functions in brackets {{{3
 
-syn region kmonaddefcfgOptValBrack start='(' end=')' contained keepend contains=@kmonadString,kmonaddefcfgIONames containedin=@kmonaddefcfgIOOpts
+syn region kmonaddefcfgOptValBrack start='(' end=')' contained keepend contains=@kmonadString,kmonaddefcfgIOName containedin=kmonaddefcfgIOOpts
 
-syn keyword kmonaddefcfgIONames kext uinput-sink send-event-sink device-file low-level-hook iokit-name contained nextgroup=@kmonadString
-hi def link kmonaddefcfgIONames Structure
+syn keyword kmonaddefcfgIOName kext uinput-sink send-event-sink device-file low-level-hook iokit-name contained nextgroup=@kmonadString
+hi def link kmonaddefcfgIOName Structure
 
 " }}}3
 
