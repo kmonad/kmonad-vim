@@ -104,9 +104,9 @@ syn cluster kmonaddefcfgOpts contains=kmonaddefcfgIOOpts,kmonaddefcfgBoolOpts,km
 
 " Input/Output Options (`input`, `output`, `init`) {{{3
 
-syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='input'  contained
-syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='output' contained
-syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='init'   contained
+syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='input'  contained keepend
+syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='output' contained keepend
+syn region kmonaddefcfgIOOpts end='$' matchgroup=kmonaddefcfgOptName start='init'   contained keepend
 
 " }}}3
 
