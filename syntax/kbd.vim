@@ -37,6 +37,18 @@ hi def link kmonadMultiComment Comment
 
 set commentstring=;;%s
 
+" Matchit jumping between multiline comment markers {{{2
+
+let mtRgx = '#|:|#'
+
+if exists("b:match_words")
+	let b:match_words .= mtRgx
+else
+	let b:match_words = mtRgx
+endif
+
+" }}}2
+
 " }}}1
 
 setlocal iskeyword+=-
