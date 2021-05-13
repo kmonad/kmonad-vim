@@ -39,7 +39,9 @@ set commentstring=;;%s
 " }}}1
 
 " TODO is there a better place to put this?
-setlocal iskeyword+=-,;,,,.,/,=,',{,},[,],`,\
+" TODO can't add '"'
+" TODO can't add [,],@,^
+setlocal iskeyword+=-,;,,,.,/,=,',{,},[,],`,:,<,>,*,\|,?,$,&,+,(,),~,!,#,%,\
 
 hi def link kmonadKeyword Keyword
 
@@ -86,30 +88,37 @@ syn cluster kmonadKeyVals contains=kmonadKeycode,kmonadAliascode
 
 " Keycodes {{{1
 
-syn keyword kmonadKeycode ' contained
+syn keyword kmonadKeycode ' " contained
 syn keyword kmonadKeycode , contained
-syn keyword kmonadKeycode - contained
 syn keyword kmonadKeycode . contained
 syn keyword kmonadKeycode / contained
-syn keyword kmonadKeycode 0 contained
-syn keyword kmonadKeycode 1 contained
-syn keyword kmonadKeycode 102d contained
-syn keyword kmonadKeycode 102nd contained
-syn keyword kmonadKeycode 2 contained
-syn keyword kmonadKeycode 3 contained
-syn keyword kmonadKeycode 4 contained
-syn keyword kmonadKeycode 5 contained
-syn keyword kmonadKeycode 6 contained
-syn keyword kmonadKeycode 7 contained
-syn keyword kmonadKeycode 8 contained
-syn keyword kmonadKeycode 9 contained
+syn keyword kmonadKeycode : contained
+syn keyword kmonadKeycode < > contained
+syn keyword kmonadKeycode * contained
+syn keyword kmonadKeycode ? contained
+syn keyword kmonadKeycode $ contained
+syn keyword kmonadKeycode \| contained
+syn keyword kmonadKeycode & contained
+syn keyword kmonadKeycode - + contained
+syn keyword kmonadKeycode \\( \\) contained
+syn keyword kmonadKeycode ~ contained
+syn keyword kmonadKeycode \\ contained
+syn keyword kmonadKeycode { } contained
 syn keyword kmonadKeycode ; contained
 syn keyword kmonadKeycode = contained
-syn keyword kmonadKeycode a contained
+syn keyword kmonadKeycode _ contained
+syn keyword kmonadKeycode ! contained
+syn keyword kmonadKeycode # contained
+syn keyword kmonadKeycode % contained
+
+syn keyword kmonadKeycode a b c d e f g h i j k l m n o p q r s t u v w x y z contained
+syn keyword kmonadKeycode A B C D E F G H I J K L M N O P Q R S T U V W X Y Z contained
+syn keyword kmonadKeycode 0 1 2 3 4 5 6 7 8 9 contained
+
+syn keyword kmonadKeycode 102d 102nd contained
 syn keyword kmonadKeycode again contained
 syn keyword kmonadKeycode alterase contained
 syn keyword kmonadKeycode apostrophe contained
-syn keyword kmonadKeycode b contained
 syn keyword kmonadKeycode back contained
 syn keyword kmonadKeycode backslash contained
 syn keyword kmonadKeycode backspace contained
@@ -121,7 +130,6 @@ syn keyword kmonadKeycode brightnesscycle contained
 syn keyword kmonadKeycode brightnessdown contained
 syn keyword kmonadKeycode brightnessup contained
 syn keyword kmonadKeycode brightnesszero contained
-syn keyword kmonadKeycode c contained
 syn keyword kmonadKeycode calc contained
 syn keyword kmonadKeycode camera contained
 syn keyword kmonadKeycode cancel contained
@@ -138,7 +146,6 @@ syn keyword kmonadKeycode connect contained
 syn keyword kmonadKeycode copy contained
 syn keyword kmonadKeycode cut contained
 syn keyword kmonadKeycode cyclewindows contained
-syn keyword kmonadKeycode d contained
 syn keyword kmonadKeycode dashboard contained
 syn keyword kmonadKeycode delete contained
 syn keyword kmonadKeycode deletefile contained
@@ -147,7 +154,6 @@ syn keyword kmonadKeycode displayoff contained
 syn keyword kmonadKeycode documents contained
 syn keyword kmonadKeycode dot contained
 syn keyword kmonadKeycode down contained
-syn keyword kmonadKeycode e contained
 syn keyword kmonadKeycode edit contained
 syn keyword kmonadKeycode ejectcd contained
 syn keyword kmonadKeycode ejectclosecd contained
@@ -157,31 +163,8 @@ syn keyword kmonadKeycode enter contained
 syn keyword kmonadKeycode equal contained
 syn keyword kmonadKeycode esc contained
 syn keyword kmonadKeycode exit contained
-syn keyword kmonadKeycode f contained
-syn keyword kmonadKeycode f1 contained
-syn keyword kmonadKeycode f10 contained
-syn keyword kmonadKeycode f11 contained
-syn keyword kmonadKeycode f12 contained
-syn keyword kmonadKeycode f13 contained
-syn keyword kmonadKeycode f14 contained
-syn keyword kmonadKeycode f15 contained
-syn keyword kmonadKeycode f16 contained
-syn keyword kmonadKeycode f17 contained
-syn keyword kmonadKeycode f18 contained
-syn keyword kmonadKeycode f19 contained
-syn keyword kmonadKeycode f2 contained
-syn keyword kmonadKeycode f20 contained
-syn keyword kmonadKeycode f21 contained
-syn keyword kmonadKeycode f22 contained
-syn keyword kmonadKeycode f23 contained
-syn keyword kmonadKeycode f24 contained
-syn keyword kmonadKeycode f3 contained
-syn keyword kmonadKeycode f4 contained
-syn keyword kmonadKeycode f5 contained
-syn keyword kmonadKeycode f6 contained
-syn keyword kmonadKeycode f7 contained
-syn keyword kmonadKeycode f8 contained
-syn keyword kmonadKeycode f9 contained
+syn keyword kmonadKeycode f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 f13 f14 f15 f16 f17 f18 f19 f20 f21 f22 f23 f24 contained
+syn keyword kmonadKeycode F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 F13 F14 F15 F16 F17 F18 F19 F20 F21 F22 F23 F24 contained
 syn keyword kmonadKeycode fastforward contained
 syn keyword kmonadKeycode file contained
 syn keyword kmonadKeycode finance contained
@@ -190,9 +173,7 @@ syn keyword kmonadKeycode fn contained
 syn keyword kmonadKeycode forward contained
 syn keyword kmonadKeycode forwardmail contained
 syn keyword kmonadKeycode front contained
-syn keyword kmonadKeycode g contained
 syn keyword kmonadKeycode grave contained
-syn keyword kmonadKeycode h contained
 syn keyword kmonadKeycode hangeul contained
 syn keyword kmonadKeycode hanja contained
 syn keyword kmonadKeycode help contained
@@ -201,11 +182,8 @@ syn keyword kmonadKeycode hiragana contained
 syn keyword kmonadKeycode home contained
 syn keyword kmonadKeycode homepage contained
 syn keyword kmonadKeycode hp contained
-syn keyword kmonadKeycode i contained
 syn keyword kmonadKeycode insert contained
 syn keyword kmonadKeycode iso contained
-syn keyword kmonadKeycode j contained
-syn keyword kmonadKeycode k contained
 syn keyword kmonadKeycode katakana contained
 syn keyword kmonadKeycode katakanahiragana contained
 syn keyword kmonadKeycode kbdillumdown contained
@@ -233,7 +211,6 @@ syn keyword kmonadKeycode kpplusminus contained
 syn keyword kmonadKeycode kprightparen contained
 syn keyword kmonadKeycode kpslash contained
 syn keyword kmonadKeycode kpjpcomma contained
-syn keyword kmonadKeycode l contained
 syn keyword kmonadKeycode launchpad contained
 syn keyword kmonadKeycode left contained
 syn keyword kmonadKeycode leftalt contained
@@ -242,7 +219,6 @@ syn keyword kmonadKeycode leftctrl contained
 syn keyword kmonadKeycode leftmeta contained
 syn keyword kmonadKeycode leftshift contained
 syn keyword kmonadKeycode linefeed contained
-syn keyword kmonadKeycode m contained
 syn keyword kmonadKeycode macro contained
 syn keyword kmonadKeycode mail contained
 syn keyword kmonadKeycode media contained
@@ -262,13 +238,10 @@ syn keyword kmonadKeycode move contained
 syn keyword kmonadKeycode msdos contained
 syn keyword kmonadKeycode muhenkan contained
 syn keyword kmonadKeycode mute contained
-syn keyword kmonadKeycode n contained
 syn keyword kmonadKeycode new contained
 syn keyword kmonadKeycode nextsong contained
 syn keyword kmonadKeycode numlock contained
-syn keyword kmonadKeycode o contained
 syn keyword kmonadKeycode open contained
-syn keyword kmonadKeycode p contained
 syn keyword kmonadKeycode pagedown contained
 syn keyword kmonadKeycode pageup contained
 syn keyword kmonadKeycode paste contained
@@ -286,10 +259,8 @@ syn keyword kmonadKeycode prog2 contained
 syn keyword kmonadKeycode prog3 contained
 syn keyword kmonadKeycode prog4 contained
 syn keyword kmonadKeycode props contained
-syn keyword kmonadKeycode q contained
 " TODO sort out which keycodes to include (e.g. there is one for `question` but not for `?`)
 syn keyword kmonadKeycode question contained
-syn keyword kmonadKeycode r contained
 syn keyword kmonadKeycode record contained
 syn keyword kmonadKeycode redo contained
 syn keyword kmonadKeycode refresh contained
@@ -302,7 +273,6 @@ syn keyword kmonadKeycode rightctrl contained
 syn keyword kmonadKeycode rightmeta contained
 syn keyword kmonadKeycode rightshift contained
 syn keyword kmonadKeycode ro contained
-syn keyword kmonadKeycode s contained
 syn keyword kmonadKeycode save contained
 syn keyword kmonadKeycode scale contained
 syn keyword kmonadKeycode scrolldown contained
@@ -324,28 +294,21 @@ syn keyword kmonadKeycode stopcd contained
 syn keyword kmonadKeycode suspend contained
 syn keyword kmonadKeycode switchvideomode contained
 syn keyword kmonadKeycode sysrq contained
-syn keyword kmonadKeycode t contained
 syn keyword kmonadKeycode tab contained
-syn keyword kmonadKeycode u contained
 syn keyword kmonadKeycode undo contained
 syn keyword kmonadKeycode unknown contained
 syn keyword kmonadKeycode up contained
 syn keyword kmonadKeycode uwb contained
-syn keyword kmonadKeycode v contained
 syn keyword kmonadKeycode videonext contained
 syn keyword kmonadKeycode videoprev contained
 syn keyword kmonadKeycode volumedown contained
 syn keyword kmonadKeycode volumeup contained
-syn keyword kmonadKeycode w contained
 syn keyword kmonadKeycode wakeup contained
 syn keyword kmonadKeycode wimax contained
 syn keyword kmonadKeycode wlan contained
 syn keyword kmonadKeycode www contained
-syn keyword kmonadKeycode x contained
 syn keyword kmonadKeycode xfer contained
-syn keyword kmonadKeycode y contained
 syn keyword kmonadKeycode yen contained
-syn keyword kmonadKeycode z contained
 syn keyword kmonadKeycode zenkakuhankaku contained
 " syn keyword kmonadKeycoes [] contained " TODO include [] keywords
 syn keyword kmonadKeycode \\ contained
@@ -502,7 +465,7 @@ syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zslayer-\(add\|delay\|next\|rem\|switch\|toggle\)' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zstap-hold\(-next\(-release\)\?\)\?\|(\zstap-\(macro\|next\(-release\)\?\)' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='#\ze(' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal keepend
-		
+
 " }}}1
 
 " deflayer {{{1
