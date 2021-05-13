@@ -19,9 +19,6 @@
 " You should have received a copy of the GNU General Public License
 " along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-" TODO:
-" - add leading brackets and corresponding hl offsets to all the `def-` keywords.
-
 if version < 600
   syntax clear
 elseif exists("b:current_syntax")
@@ -44,8 +41,6 @@ set commentstring=;;%s
 " TODO is there a better place to put this?
 setlocal iskeyword+=-,;,,,.,/,=,',{,},[,],`,\
 
-syn region kmonmadTopBracks start='(' end=')' transparent contains=@kmonadTopLevel
-syn cluster kmonadTopLevel contains=kmonaddefcfg,kmonaddefsrc,kmonaddefalias,kmonaddeflayer
 hi def link kmonadKeyword Keyword
 
 " Data Types {{{1
@@ -446,7 +441,7 @@ hi def link kmonadKeycode Identifier
 " }}}1
 
 " defcfg {{{1
-syn region kmonaddefcfg end=')' matchgroup=kmonadkeyword start='defcfg' contained contains=@kmonaddefcfgOpts
+syn region kmonaddefcfg end=')' matchgroup=kmonadkeyword start='(\zsdefcfg' contains=@kmonaddefcfgOpts
 
 " defcfg options {{{2
 
@@ -488,13 +483,13 @@ hi def link kmonaddefcfgIONames Structure
 
 " defsrc {{{1
 
-syn region kmonaddefsrc end=')' matchgroup=kmonadkeyword start='defsrc' contained contains=kmonadKeycode
+syn region kmonaddefsrc end=')' matchgroup=kmonadkeyword start='(\zsdefsrc' contains=kmonadKeycode
 
 " }}}1
 
 " defalias {{{1
 
-syn region kmonaddefalias end=')' matchgroup=kmonadkeyword start='defalias' contained contains=kmonaddefaliasName,kmonaddefaliasBrackVal
+syn region kmonaddefalias end=')' matchgroup=kmonadkeyword start='(\zsdefalias' contains=kmonaddefaliasName,kmonaddefaliasBrackVal
 
 syn match kmonaddefaliasName '\(defalias\s\+\|^\)\zs\s*[^ 	#(]\S*' nextgroup=kmonaddefaliasBrackVal
 hi def link kmonaddefaliasName Identifier 
@@ -514,6 +509,6 @@ syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='#\
 
 " deflayer {{{1
 
-syn region kmonaddeflayer end=')' matchgroup=kmonadkeyword start='deflayer' contained contains=@kmonadKeyVals
+syn region kmonaddeflayer end=')' matchgroup=kmonadkeyword start='(\zsdeflayer' contains=@kmonadKeyVals
 
 " }}}1
