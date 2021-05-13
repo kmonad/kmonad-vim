@@ -26,6 +26,7 @@ elseif exists("b:current_syntax")
 endif
 
 " Comments {{{1
+
 syn keyword kmonadTodo TODO FIXME XXX NOTE BUG contained 
 hi def link kmonadTODO Todo
 
@@ -82,6 +83,7 @@ hi def link kmonadNumber Number
 " }}}1
 
 " defcfg {{{1
+
 syn region kmonaddefcfg end=')' matchgroup=kmonadkeyword start='(\zsdefcfg' contains=@kmonaddefcfgOpts
 
 " defcfg options {{{2
