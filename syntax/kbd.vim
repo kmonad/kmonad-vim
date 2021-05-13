@@ -84,7 +84,7 @@ hi def link kmonadNumber Number
 
 " defcfg {{{1
 
-syn region kmonaddefcfg end=')' matchgroup=kmonadkeyword start='(\zsdefcfg' contains=@kmonaddefcfgOpts
+syn region kmonaddefcfg end=')' matchgroup=kmonadkeyword start='(\zsdefcfg' contains=@kmonaddefcfgOpts fold
 
 " defcfg options {{{2
 
@@ -124,13 +124,13 @@ hi def link kmonaddefcfgIOName Structure
 
 " defsrc {{{1
 
-syn region kmonaddefsrc end=')' matchgroup=kmonadkeyword start='(\zsdefsrc'
+syn region kmonaddefsrc end=')' matchgroup=kmonadkeyword start='(\zsdefsrc' fold
 
 " }}}1
 
 " defalias {{{1
 
-syn region kmonaddefalias end=')' matchgroup=kmonadkeyword start='(\zsdefalias' contains=kmonaddefaliasName,kmonaddefaliasBrackVal
+syn region kmonaddefalias end=')' matchgroup=kmonadkeyword start='(\zsdefalias' contains=kmonaddefaliasName,kmonaddefaliasBrackVal fold
 
 syn match kmonaddefaliasName '\(defalias\s\+\|^\)\zs\s*[^ 	#(]\S\+\ze\s\+\S' nextgroup=kmonaddefaliasBrackVal contained
 hi def link kmonaddefaliasName Identifier 
@@ -149,7 +149,7 @@ syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='#\
 
 " deflayer {{{1
 
-syn region kmonaddeflayer end=')' matchgroup=kmonadkeyword start='(\zsdeflayer' skip='\\)' contains=kmonadPlus,kmonadAliascode
+syn region kmonaddeflayer end=')' matchgroup=kmonadkeyword start='(\zsdeflayer' skip='\\)' contains=kmonadPlus,kmonadAliascode fold
 
 syn match kmonadPlus '\s\zs+\S\+\ze'
 hi def link kmonadPlus Structure
