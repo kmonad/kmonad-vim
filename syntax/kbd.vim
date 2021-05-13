@@ -460,7 +460,7 @@ hi def link kmonaddefaliasName Identifier
 hi def link kmonaddefaliasMod Keyword
 
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zsaround\(-next\(-single\)\?\)\?' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
-syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zscmd-button' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
+syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zscmd-button' contained contains=@kmonadString
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zsmulti-tap' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='(\zslayer-\(add\|delay\|next\|rem\|switch\|toggle\)' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
 syn region kmonaddefaliasBrackVal end=')' matchgroup=kmonaddefaliasMod start='tap\(-macro\)\?-next\(-release\)\?' contained contains=@kmonadKeyVals,kmonaddefaliasBrackVal
